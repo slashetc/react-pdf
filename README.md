@@ -1,6 +1,6 @@
 <div align="center">
   <big>
-    <h1>react-pdf</h1>
+    <h1>react-pdf W</h1>
   </big>
 </div>
 
