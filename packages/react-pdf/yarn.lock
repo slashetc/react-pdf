@@ -621,7 +621,7 @@ fill-range@^2.1.0:
     repeat-element "^1.1.2"
     repeat-string "^1.5.2"
 
-fontkit@^1.5.4:
+fontkit@^1.0.0, fontkit@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/fontkit/-/fontkit-1.5.4.tgz#d6d56371110bf7449b54c6cf6b3263ea1c0303b1"
   dependencies:
@@ -990,6 +990,12 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
+linebreak@~0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/linebreak/-/linebreak-0.1.2.tgz#67ef2db4a4698902e87eba9a0ee4f8490aa717e6"
+  dependencies:
+    unicode-trie "^0.1.1"
+
 lodash.map@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
@@ -1216,9 +1222,21 @@ path-parse@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
 
+pdfkit@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/pdfkit/-/pdfkit-0.8.0.tgz#0b3f7c0c3b00cc4f7f69e46d85d2a7cbb3818af6"
+  dependencies:
+    fontkit "^1.0.0"
+    linebreak "~0.1.0"
+    png-js ">=0.1.0"
+
 performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
+
+png-js@>=0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/png-js/-/png-js-0.1.1.tgz#1cc7c212303acabe74263ec3ac78009580242d93"
 
 preserve@^0.2.0:
   version "0.2.0"
@@ -1622,6 +1640,10 @@ unicode-properties@^1.0.0:
   dependencies:
     brfs "^1.4.0"
     unicode-trie "^0.3.0"
+
+unicode-trie@^0.1.1:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/unicode-trie/-/unicode-trie-0.1.2.tgz#bd3c528bc3360cafdf71f0863cbec29fc0e84ec8"
 
 unicode-trie@^0.3.0:
   version "0.3.1"

@@ -1,13 +1,18 @@
 import Base from './Base';
-import { toRGB } from '../utils/colors';
-import { pdfObject, pdfStream } from '../utils/pdf';
 
 class Text extends Base {
-  constructor(props, root) {
-    super(props, root);
+  applyProps(props) {
+    super.applyProps(props);
 
-    this.layout.setWidth(18);
-    this.layout.setHeight(18);
+    // This hack is needed to retrieve heightOfString.
+    // Need to fix
+    this.root.page = { margins: 0 };
+
+    const width = this.root.widthOfString(`${props.children}`);
+    const height = this.root.heightOfString(`${props.children}`);
+
+    this.layout.setWidth(width);
+    this.layout.setHeight(height);
   }
 
   appendChild(child) {
@@ -20,23 +25,12 @@ class Text extends Base {
 
   async render() {
     const { fontSize = 18, color = 'black' } = this.style;
-    const { left, top, height } = this.getAbsoluteLayout();
+    const { left, top } = this.getAbsoluteLayout();
 
-    const text = [
-      '/DeviceRGB cs',
-      `${toRGB(color)} scn`,
-      'BT',
-      `/F1 ${fontSize} Tf`,
-      `1 0 0 -1 ${left} ${top + height} Tm`,
-      `(${this.children})Tj`,
-      'ET',
-    ].join('\n');
-
-    const stream = pdfObject(this.id, pdfStream(text)) + '\n';
-
-    this.offset = this.root.addOffset(stream.length);
-
-    return stream;
+    this.root
+      .fillColor(color)
+      .fontSize(fontSize)
+      .text(this.children, left, top);
   }
 }
 
