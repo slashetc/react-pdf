@@ -7,12 +7,12 @@ import StyleSheet from './Stylesheet';
 const View = 'VIEW';
 const Text = 'TEXT';
 const Page = 'PAGE';
+const Image = 'IMAGE';
 const Document = 'DOCUMENT';
 
 const pdf = input => {
   async function parse(input) {
     const document = input.document;
-
     await document.render();
 
     if (document.props.onRender) {
@@ -56,6 +56,7 @@ export {
   View,
   Text,
   Page,
+  Image,
   Document,
   StyleSheet,
   createElement,
